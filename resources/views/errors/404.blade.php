@@ -3,6 +3,6 @@
 
 @section('content')
 
-    <h1>Admin Dashboard</h1>
+<h1>Custom 404 Page</h1>
 
 @stop

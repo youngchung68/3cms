@@ -23,6 +23,7 @@ class AdminUsersController extends Controller
     {
 
         $users = User::all();
+        //return view('admin.users.index', compact('users'));
         return view('admin.users.index', compact('users'));
     }
 
@@ -150,6 +151,17 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $photo_id = $user->photo_id;
+        unlink(public_path(). $user->photo->file);
+        $user->delete();
+
+
+        $findPhoto =  Photo::findOrFail($photo_id);
+        $findPhoto->delete();
+
+
+        return redirect('/admin/users');
+        //return 'Destory';
     }
 }
