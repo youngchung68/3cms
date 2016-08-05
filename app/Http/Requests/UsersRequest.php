@@ -31,8 +31,6 @@ class UsersRequest extends Request
             'is_active'=>'required',
             'password'=>'required'
 
-
-
         ];
     }
 }
